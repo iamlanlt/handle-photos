@@ -5,8 +5,8 @@
 ### Create a virtual environment
 
 ```bash
-pyenv virtualenv tl-plus-website
-pyenv shell tl-plus-website
+pyenv virtualenv handle-photos
+pyenv shell handle-photos
 
 # or
 
