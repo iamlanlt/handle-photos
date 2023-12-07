@@ -1,6 +1,6 @@
 import cv2
 
-def classify_product_height(image_path):
+def classify_product_dimensions(image_path):
     # Đọc ảnh từ đường dẫn
     image = cv2.imread(image_path)
     
@@ -24,16 +24,18 @@ def classify_product_height(image_path):
         # Tính toán kích thước của bounding box
         x, y, width, height = cv2.boundingRect(contour)
         
-        # Xác định chiều cao của vật thể
-        object_height = height  # Hoặc có thể tính toán chiều cao dựa trên ảnh so với khoảng cách camera
+        # Xác định chiều dài, rộng và cao của vật thể
+        object_width = width
+        object_height = height
+        object_depth = min(object_width, object_height)
         
-        # Phân loại vật thể dựa trên chiều cao
-        if object_height <= 600:
-            print("Loại sản phẩm A: " + str(object_height))
-        elif 600 < object_height <= 800:
-            print("Loại sản phẩm B: " + str(object_height))
+        # Phân loại vật thể dựa trên chiều dài, rộng và cao
+        if object_depth <= 600:
+            print("Loại sản phẩm A: " + str(object_width) + " x " + str(object_height) + " x " + str(object_depth))
+        elif 600 < object_depth <= 800:
+            print("Loại sản phẩm B: " + str(object_width) + " x " + str(object_height) + " x " + str(object_depth))
         else:
-            print("Loại sản phẩm C: " + str(object_height))
+            print("Loại sản phẩm C: " + str(object_width) + " x " + str(object_height) + " x " + str(object_depth))
     
     # Hiển thị ảnh và contours (để kiểm tra)
     cv2.drawContours(image, contours, -1, (0, 255, 0), 2)
@@ -42,6 +44,6 @@ def classify_product_height(image_path):
     cv2.destroyAllWindows()
 
 # Gọi hàm với đường dẫn ảnh
-classify_product_height('testA.jpg')
-classify_product_height('testB.jpg')
-classify_product_height('testC.jpg')
+classify_product_dimensions('testA.jpg')
+classify_product_dimensions('testB.jpg')
+classify_product_dimensions('testC.jpg')

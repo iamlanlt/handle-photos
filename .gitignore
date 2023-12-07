@@ -2,3 +2,7 @@ __pycache__
 handle_camera_speed.py
 handle_camera.py
 test.py
+
+haarcascade_frontalface_default.xml
+test_face.py
+webcam.log

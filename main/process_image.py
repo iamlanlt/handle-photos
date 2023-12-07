@@ -1,4 +1,3 @@
-# process_image.py
 import cv2
 
 def process_image(image):
@@ -22,11 +21,13 @@ def process_image(image):
         x, y, w, h = cv2.boundingRect(contour)
 
         # Update object dimensions if the bounding box dimensions are larger
-        if w > object_width and h > object_height:
+        if w > object_width:
             object_width = w
+
+        if h > object_height:
             object_height = h
 
     # Assume a constant depth or use additional techniques to estimate depth
-    object_depth = 5
+    object_depth = min(object_width, object_height)  
 
     return object_width, object_height, object_depth

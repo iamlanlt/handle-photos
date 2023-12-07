@@ -1,8 +1,8 @@
 def classify_object(width, height, depth):
     # Object classification based on dimensions
-    if width > 8 and height > 8 and depth > 8:
+    if width > 300 and height > 300 and depth > 300:
         return "Large Object"
-    elif width > 4 and height > 4 and depth > 4:
+    elif width > 100 and height > 100 and depth > 100:
         return "Medium Object"
     else:
         return "Small Object"
