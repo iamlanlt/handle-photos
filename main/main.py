@@ -3,6 +3,7 @@ import time
 from process_image import process_image
 from classify_object import classify_object
 
+
 def main():
     # Open the camera
     cap = cv2.VideoCapture(0)
@@ -29,18 +30,19 @@ def main():
             print(f"Object classification: {object_class}")
 
             # Display the object image
-            cv2.imshow('Object Image', frame)
+            cv2.imshow("Object Image", frame)
 
             # Update the last reading time
             last_read_time = current_time
 
         # Exit on 'q' key press
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        if cv2.waitKey(1) & 0xFF == ord("q"):
             break
 
     # Release the camera and close the window
     cap.release()
     cv2.destroyAllWindows()
+
 
 if __name__ == "__main__":
     main()

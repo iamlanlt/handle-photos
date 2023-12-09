@@ -1,5 +1,6 @@
 import cv2
 
+
 def process_image(image):
     # Convert the image to grayscale
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -28,6 +29,6 @@ def process_image(image):
             object_height = h
 
     # Assume a constant depth or use additional techniques to estimate depth
-    object_depth = min(object_width, object_height)  
+    object_depth = min(object_width, object_height)
 
     return object_width, object_height, object_depth

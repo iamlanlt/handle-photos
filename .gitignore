@@ -6,3 +6,5 @@ test.py
 haarcascade_frontalface_default.xml
 test_face.py
 webcam.log
+
+.vscode
